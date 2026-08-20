@@ -6,3 +6,156 @@
 @keyframes float{50%{transform:translateY(16px) rotate(5deg)}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 @media (min-width:800px){.hero{grid-template-columns:1fr 1fr;padding:80px 9vw}.hero-copy{text-align:left}.polaroid{width:min(33vw,430px);margin:0}.hero-ball{width:180px;height:180px}.timer{gap:28px}.when{padding:80px 14vw}.location{grid-template-columns:1.1fr .8fr;padding:80px 10vw}.map-art{height:500px}.dress{grid-template-columns:.9fr 1.1fr}.dress img{height:100%;min-height:100svh}.dress-copy{display:flex;flex-direction:column;justify-content:center;padding:90px}.music{grid-template-columns:.9fr 1fr;padding:100px 10vw}.album{max-width:540px}.bloom{grid-template-columns:1fr 1.2fr}.bloom>div{display:flex;flex-direction:column;justify-content:center;padding:90px}.bloom img{height:100%;min-height:90svh}.gifts{grid-template-columns:1fr 1fr;text-align:left}.giftbox{width:290px;height:210px}.lid{width:320px}.mosaic{padding:72px}.mosaic-inner{min-height:80svh}}
+
+/* Intro visual supplied for Albertina */
+.splash-reference{display:block;width:100vw;height:100dvh;max-height:100dvh;padding:0;overflow:hidden;background:#f7d5d7 url('/intro-albertina-mobile-v2.png') center/cover no-repeat;text-align:initial}
+.splash-reference>img{display:none}
+.splash-hotspots{position:absolute;top:0;bottom:0;left:0;width:100%;transform:none;display:flex;flex-direction:column;align-items:center;padding-top:63.7vh;pointer-events:none}
+.splash-hotspots button{pointer-events:auto;width:66.5%;height:6.6vh;min-height:46px;margin:0;border:0;border-radius:0;background:transparent;color:transparent;box-shadow:none}
+.splash-hotspots button+button{height:6.2vh;margin-top:3.4vh}
+.splash-hotspots button:hover{background:#fff2;transform:none}
+.splash-hotspots button:focus-visible{outline:3px solid #d98096;outline-offset:-5px}
+@media (min-width:800px){.splash-hotspots{width:100%}}
+.polaroid-photo{width:100%;aspect-ratio:4/5;display:block;object-fit:cover;object-position:center 32%}
+
+/* Image-based countdown: structure and effects reused from Delfina */
+.countdown.countdown-panel{width:100%;height:100vh;min-height:100vh;display:flex;align-items:stretch;justify-content:center;padding:0;background:#f4d4d4;overflow:hidden}
+.countdown.countdown-panel:before{display:none}
+.countdown-art-frame{position:relative;display:block;width:56.31vh;max-width:100vw;height:100vh;flex:0 0 auto;overflow:hidden}
+.countdown-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.countdown-reflections-image{position:absolute;z-index:2;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;mix-blend-mode:screen;pointer-events:none;animation:countdown-soft-glimmer 4.8s ease-in-out infinite}
+.countdown .countdown-live{position:absolute;z-index:3;left:12%;right:6.5%;top:62.5%;height:11.8%;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start;pointer-events:none}
+.countdown .countdown-live>div{min-width:0;display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.5svh,17px);padding:0;border:0}
+.countdown .countdown-live strong{display:block;color:#87534f;font:500 clamp(31px,5.1vh,74px)/1 Georgia,'Times New Roman',serif;letter-spacing:.02em;font-variant-numeric:tabular-nums;text-shadow:0 1px 0 #fff,0 5px 15px rgba(105,55,50,.2)}
+.countdown .countdown-live span{display:block;color:#8d514e;font-size:clamp(6px,.78vh,12px);font-weight:700;letter-spacing:.1em;white-space:nowrap}
+@keyframes countdown-soft-glimmer{0%,100%{opacity:.12;filter:brightness(1)}50%{opacity:.28;filter:brightness(1.16)}}
+.countdown-panel .countdown-art{opacity:1;transform:none}
+.countdown-panel .countdown-live{opacity:0;transform:translateY(16px);transition:opacity 820ms ease 180ms,transform 820ms ease 180ms}
+.countdown-panel.is-visible .countdown-art,.countdown-panel.is-visible .countdown-live{opacity:1;transform:translateY(0)}
+.countdown .countdown-live strong.tick-pop{animation:countdown-number-rise .28s ease}
+@keyframes countdown-number-rise{from{opacity:.58;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:799px){.countdown-reflections-image{inset:0;width:100%;height:100%;opacity:.14;animation:countdown-soft-glimmer 4.8s ease-in-out infinite;will-change:opacity,filter}}
+@media(min-width:800px){.countdown.countdown-panel{height:100vh;min-height:100vh}.countdown-art-frame{height:100vh;width:56.31vh;max-width:620px}}
+
+/* Image-based date section supplied for Albertina */
+.when.when-art-section{position:relative;width:100%;height:100vh;min-height:100vh;display:block;padding:0;background:#c98288;overflow:hidden}
+.when-art-section>img{width:100%;height:100%;display:block;object-fit:fill;object-position:center}
+.when-art-section .calendar-hotspot{position:absolute;z-index:2;left:31%;top:82.5%;width:38%;height:5.6%;min-height:44px;margin:0;padding:0;border:0;border-radius:999px;background:transparent;color:transparent;box-shadow:none}
+.when-art-section .calendar-hotspot:hover{background:rgba(255,255,255,.08);transform:none}
+.when-art-section .calendar-hotspot:focus-visible{outline:3px solid white;outline-offset:-4px}
+@media(max-width:600px){.when-art-section>img{object-position:center}.when-art-section .calendar-hotspot{left:31%;width:38%;top:82.5%;height:5.6%}}
+
+/* Editorial welcome composition supplied as reference */
+.hero.welcome-cover{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;padding:72px 9vw 0;background:#f4d8d8;overflow:hidden;color:#744d4c}
+.welcome-cover:before{display:none}
+.welcome-cover__copy{position:relative;z-index:2;max-width:620px}
+.welcome-cover__kicker{margin-bottom:34px;color:#ad716e;font-size:.62rem;font-weight:600;letter-spacing:.32em}
+.welcome-cover__copy h2{margin-bottom:32px;font-weight:400}
+.welcome-cover__copy h2 span{display:block;margin-bottom:22px;color:#9f6663;font:clamp(2.4rem,9vw,5.2rem)/1 Parisienne,cursive}
+.welcome-cover__copy h2 strong{display:block;color:#6f4b49;font:400 clamp(2rem,7.5vw,4.2rem)/1.08 Italiana,serif}
+.welcome-cover__copy h2 em{color:#bd7a77;font:inherit;font-style:normal}
+.welcome-cover__body{max-width:560px;margin:0;color:#765653;font:clamp(.86rem,2.8vw,1.08rem)/1.85 Italiana,serif}
+.welcome-polaroids{position:relative;width:min(100%,620px);height:48svh;min-height:390px;margin:38px auto 0}
+.welcome-polaroid{position:absolute;margin:0;padding:9px 9px 42px;background:#fffdfa;box-shadow:0 15px 36px rgba(119,71,67,.2)}
+.welcome-polaroid img{width:100%;height:100%;display:block;object-fit:cover}
+.welcome-polaroid--back{left:0;bottom:20px;width:64%;height:92%;transform:rotate(-5deg)}
+.welcome-polaroid--back img{object-position:center 20%}
+.welcome-polaroid--front{left:50%;bottom:0;width:min(82%,430px);height:94%;transform:translateX(-50%) rotate(2deg)}
+.welcome-polaroid--front img{object-position:center 33%}
+@media(min-width:800px){.hero.welcome-cover{display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;gap:6vw;padding:80px 8vw}.welcome-polaroids{height:78vh;max-height:800px;margin:0}.welcome-polaroid--front{left:50%;bottom:2%;width:min(76%,520px);height:88%;transform:translateX(-50%) rotate(2deg)}}
+
+/* Image-based Dress Code supplied for Albertina */
+.dress.dress-art-section{width:100%;height:100vh;min-height:100vh;display:block;background:#efd6d3;overflow:hidden}
+.dress-art-section>img{width:100%;height:100%;display:block;object-fit:fill;object-position:center}
+@media(max-width:600px){.dress.dress-art-section{height:100svh;min-height:100svh}.dress-art-section>img{width:100%;height:100%;object-fit:fill}}
+
+/* Music section reuses Zoe's real turntable assets */
+.music{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:18px;padding:72px 0 0;background:#f9e8e3;overflow:hidden}
+.music .music-copy{position:relative;z-index:2;width:100%;padding:0 7vw;text-align:center;transform:translateY(6svh)}
+.music .music-copy h2{margin:0;color:#8d5b58;font:400 clamp(2.2rem,9vw,5.3rem)/1.05 Italiana,serif;letter-spacing:.015em}
+.music .music-copy>p{max-width:620px;margin:24px auto 20px;color:#9a6662;font-size:clamp(.68rem,2.4vw,.9rem);font-weight:500;letter-spacing:.14em;line-height:1.8}
+.music .music-copy button{background:#fff9f4}
+.zoe-turntable{position:relative;width:min(112vw,620px);aspect-ratio:1/1;flex:0 0 auto;margin-bottom:-12%;overflow:hidden}
+.zoe-turntable__base{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain}
+.zoe-turntable__vinyl{position:absolute;z-index:2;width:65.4%;height:auto;left:11.4%;top:16.75%;transform-origin:50% 50%;animation:albertina-vinyl-spin 9s linear infinite}
+.zoe-turntable__tonearm{position:absolute;z-index:3;width:60%;height:auto;left:43%;top:6%}
+@keyframes albertina-vinyl-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(min-width:800px){.music{display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;padding:80px 6vw;gap:4vw}.music .music-copy{text-align:left;padding:0}.music .music-copy>p{margin-left:0}.zoe-turntable{width:min(52vw,650px);margin:0;justify-self:end}}
+@media(prefers-reduced-motion:reduce){.zoe-turntable__vinyl{animation:none}}
+
+/* Image-based gifts section supplied for Albertina */
+.gifts.gifts-art-section{position:relative;width:100%;height:100svh;min-height:100svh;display:flex;justify-content:center;align-items:center;padding:0;background:#f3d2d3;overflow:hidden;text-align:initial}
+.gift-art-frame{position:relative;width:100vw;height:100svh;max-width:none;aspect-ratio:auto}
+.gift-art-frame>img{width:100%;height:100%;display:block;object-fit:fill}
+.gifts-art-section .gift-hotspot{position:absolute;z-index:2;left:6.4%;top:87.4%;width:41.2%;height:6.7%;min-height:44px;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:transparent;box-shadow:none}
+.gifts-art-section .gift-hotspot:hover{background:rgba(255,255,255,.08);transform:none}
+.gifts-art-section .gift-hotspot:focus-visible{outline:3px solid #ce7185;outline-offset:-4px}
+@media(min-width:800px){.gifts-art-section:before,.gifts-art-section:after{display:none}}
+
+/* Every mobile section occupies one complete viewport */
+@media(max-width:799px){main>section{height:100svh;min-height:100svh;max-height:100svh;overflow:hidden}.location,.bloom{min-height:100svh;height:100svh}.dress.dress-art-section{height:100svh;min-height:100svh}.dress-art-section>img{width:100%;height:100%;object-fit:fill}.bloom>div{min-height:46svh;padding-top:55px;padding-bottom:32px}.bloom img{height:54svh}.rsvp.mosaic{display:grid;padding:38px}.rsvp .mosaic-inner{min-height:calc(100svh - 76px)}footer.mosaic{height:100svh;min-height:100svh;display:grid}footer .mosaic-inner{min-height:calc(100svh - 76px)}}
+
+/* Image-based BloomKeep section supplied for Albertina */
+.bloom.bloom-art-section{position:relative;width:100%;height:100svh;min-height:100svh;display:block;background:#eccfc8;overflow:hidden}
+.bloom-art-section>img{width:100%;height:100%;display:block;object-fit:fill}
+.bloom-art-section .bloom-hotspot{position:absolute;z-index:2;left:20.4%;top:86.8%;width:59.4%;height:7.2%;min-height:44px;margin:0;padding:0;border:0;border-radius:999px;background:transparent;color:transparent;box-shadow:none}
+.bloom-art-section .bloom-hotspot:hover{background:rgba(255,255,255,.08);transform:none}
+.bloom-art-section .bloom-hotspot:focus-visible{outline:3px solid #bd6870;outline-offset:-4px}
+@media(min-width:800px){.bloom.bloom-art-section{width:min(100%,620px);margin:0 auto}.bloom-art-section>img{min-height:0}}
+
+/* Image-based RSVP section supplied for Albertina */
+.rsvp.rsvp-art-section{position:relative;width:100%;height:100svh;min-height:100svh;display:block;padding:0;background:#ecd1c7;overflow:hidden}
+.rsvp-art-section>img{width:100%;height:100%;display:block;object-fit:fill}
+.rsvp-art-section .rsvp-hotspot{position:absolute;z-index:2;left:16.5%;top:71.1%;width:67%;height:9.2%;min-height:48px;margin:0;padding:0;border:0;border-radius:999px;background:transparent;color:transparent;box-shadow:none}
+.rsvp-art-section .rsvp-hotspot:hover{background:rgba(255,255,255,.08);transform:none}
+.rsvp-art-section .rsvp-hotspot:focus-visible{outline:3px solid #bd6870;outline-offset:-4px}
+@media(min-width:800px){.rsvp.rsvp-art-section{width:min(100%,620px);margin:0 auto}}
+.bloomdate-footer{width:100%;min-height:0;padding:26px 18px 22px;border-top:1px solid #d8d8d8;background:#fff;color:#656565;display:flex;flex-direction:column;align-items:center;text-align:center}
+.bloomdate-footer__credit{height:24px;margin:0;display:flex;align-items:center;justify-content:center;gap:5px;font-size:.58rem;font-weight:700;letter-spacing:.17em;white-space:nowrap}
+.bloomdate-footer__credit span{color:#ed8eb3;font-size:.78rem}
+.bloomdate-footer__credit img{width:82px;height:24px;object-fit:cover;object-position:right center}
+.bloomdate-footer__links{display:flex;align-items:center;justify-content:center;gap:28px;margin:18px 0}
+.bloomdate-footer__links a{width:24px;height:24px;padding:3px;color:#ed8eb3;text-decoration:none;transition:transform .2s ease}
+.bloomdate-footer__links a:hover{transform:translateY(-2px)}
+.bloomdate-footer__links svg{display:block;width:100%;height:100%;fill:currentColor}
+.bloomdate-footer__rights{margin:0;color:#777;font-size:.54rem;font-weight:600;letter-spacing:.14em}
+@media(max-width:380px){.bloomdate-footer__credit{font-size:.5rem;letter-spacing:.12em}.bloomdate-footer__credit img{width:72px}.bloomdate-footer__rights{font-size:.48rem}}
+.music-toggle{position:fixed;z-index:45;right:18px;bottom:18px;width:52px;height:52px;min-height:52px;padding:0;display:grid;place-items:center;border:1px solid rgba(213,112,151,.65);border-radius:50%;background:rgba(255,249,251,.92);color:#df7ea5;font-size:1.35rem;box-shadow:0 7px 24px rgba(132,76,97,.22);backdrop-filter:blur(8px)}
+.music-toggle:hover{background:#fff;transform:translateY(-2px)}
+.music-toggle.is-playing span{animation:music-note-pulse 1.3s ease-in-out infinite}
+@keyframes music-note-pulse{50%{transform:scale(1.18);opacity:.68}}
+
+/* Image-based location section supplied for Albertina */
+.location.location-art-section{position:relative;width:100%;height:100svh;min-height:100svh;display:block;padding:0;background:#efd3ce;overflow:hidden}
+.location-art-section>img{width:100%;height:100%;display:block;object-fit:fill}
+.location-art-section .location-hotspot{position:absolute;z-index:2;left:25%;top:91.5%;width:50%;height:5.5%;min-height:42px;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:transparent;box-shadow:none}
+.location-art-section .location-hotspot:hover{background:rgba(255,255,255,.08);transform:none}
+.location-art-section .location-hotspot:focus-visible{outline:3px solid #bd7772;outline-offset:-4px}
+@media(min-width:800px){.location.location-art-section{width:min(100%,620px);margin:0 auto}}
+
+/* Desktop keeps the invitation in its original mobile composition, centered. */
+@media(min-width:800px){
+  body{background:#f4e9ed}
+  main{width:480px;max-width:100%;margin:0 auto;background:#fff;box-shadow:0 0 42px rgba(111,73,82,.16);overflow:hidden}
+  main>section{width:100%!important;margin-left:auto!important;margin-right:auto!important}
+  .splash-reference{background-image:url('/intro-albertina-desktop-v2.png');background-size:cover;background-position:center}
+  .splash-hotspots{width:100%;max-width:none;padding-top:68.2vh}
+  .splash-hotspots button{width:39.5%;height:10.2%;min-height:58px}
+  .splash-hotspots button+button{height:7.2%;margin-top:2.2%}
+  .hero.welcome-cover{min-height:900px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:0;padding:64px 40px 0}
+  .welcome-cover__copy{max-width:none}
+  .welcome-cover__copy h2 span{font-size:2.75rem}
+  .welcome-cover__copy h2 strong{font-size:2.25rem}
+  .welcome-cover__body{font-size:.95rem}
+  .welcome-polaroids{width:100%;height:470px;margin:30px auto 0}
+  .welcome-polaroid--front{left:50%;bottom:0;width:82%;height:94%;transform:translateX(-50%) rotate(2deg)}
+  .countdown.countdown-panel,.countdown-art-frame{width:100%;height:auto;min-height:0;aspect-ratio:941/1672}
+  .when.when-art-section,.dress.dress-art-section,.gifts.gifts-art-section,.bloom.bloom-art-section,.rsvp.rsvp-art-section,.location.location-art-section{width:100%;height:auto;min-height:0;aspect-ratio:941/1672}
+  .gift-art-frame{width:100%;height:100%}
+  .music{min-height:900px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:18px;padding:66px 0 0}
+  .music .music-copy{width:100%;padding:0 34px;text-align:center;transform:translateY(46px)}
+  .music .music-copy h2{font-size:2.45rem}
+  .music .music-copy>p{margin:22px auto 18px}
+  .zoe-turntable{width:118%;max-width:570px;margin:0 0 -12%;justify-self:auto}
+  .bloomdate-footer{width:100%}
+}

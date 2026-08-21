@@ -146,13 +146,14 @@
   .splash-hotspots{width:100%;max-width:none;padding-top:68.2vh}
   .splash-hotspots button{width:39.5%;height:10.2%;min-height:58px}
   .splash-hotspots button+button{height:7.2%;margin-top:2.2%}
-  .hero.welcome-cover{height:auto;min-height:max(100svh,1100px);max-height:none;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:0;padding:64px 40px 0}
+  .hero.welcome-cover{height:auto;min-height:100svh;max-height:none;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:0;padding:64px 40px 56px}
   .welcome-cover__copy{max-width:none}
   .welcome-cover__copy h2 span{font-size:2.75rem}
   .welcome-cover__copy h2 strong{font-size:2.25rem}
   .welcome-cover__body{font-size:.95rem}
-  .welcome-polaroids{width:100%;height:470px;flex:0 0 470px;margin:30px auto 0}
-  .welcome-polaroid--front{left:50%;bottom:0;width:82%;height:94%;transform:translateX(-50%) rotate(2deg)}
+  .welcome-polaroids{width:100%;height:auto;min-height:0;flex:none;display:flex;justify-content:center;margin:38px auto 0;overflow:visible}
+  .welcome-polaroid--front{position:relative;left:auto;bottom:auto;width:82%;height:auto;flex:none;transform:rotate(2deg)}
+  .welcome-polaroid--front img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
   .countdown.countdown-panel,.countdown-art-frame{width:100%;height:auto;min-height:0;aspect-ratio:941/1672}
   .when.when-art-section,.dress.dress-art-section,.gifts.gifts-art-section,.bloom.bloom-art-section,.rsvp.rsvp-art-section,.location.location-art-section{width:100%;height:auto;min-height:0;aspect-ratio:941/1672}
   .gift-art-frame{width:100%;height:100%}

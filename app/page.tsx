@@ -47,7 +47,17 @@ export default function Home() {
 
   const enter = (music: boolean) => {
     setEntered(true);
-    if (music && audioRef.current) audioRef.current.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (!music) {
+      audio.pause();
+      audio.currentTime = 0;
+      setMusicPlaying(false);
+      return;
+    }
+
+    audio.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
   };
 
   const toggleMusic = () => {

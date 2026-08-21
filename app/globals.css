@@ -164,3 +164,11 @@
   .zoe-turntable{width:118%;max-width:570px;margin:0 0 -12%;justify-self:auto}
   .bloomdate-footer{width:100%}
 }
+
+/* Mobile welcome must grow with its content so the polaroid is never clipped. */
+@media(max-width:799px){
+  main>section.hero.welcome-cover{height:auto;min-height:100svh;max-height:none;overflow:visible;display:flex;flex-direction:column;justify-content:flex-start;padding:64px 9vw 56px}
+  .welcome-polaroids{position:relative;width:100%;height:auto;min-height:0;flex:none;display:flex;justify-content:center;margin:38px auto 0;overflow:visible}
+  .welcome-polaroid--front{position:relative;left:auto;bottom:auto;width:82%;height:auto;flex:none;transform:rotate(2deg)}
+  .welcome-polaroid--front img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+}

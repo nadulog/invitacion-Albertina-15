@@ -171,9 +171,8 @@
 
 /* Mobile welcome must grow with its content so the polaroid is never clipped. */
 @media(max-width:799px){
-  html{scroll-snap-type:y mandatory}
   body,main{width:100%;max-width:none}
-  main>section{width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;margin:0!important;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+  main>section{width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;margin:0!important;overflow:hidden}
   main>section.hero.welcome-cover{overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding:clamp(24px,4dvh,48px) 5vw clamp(16px,3dvh,32px)}
   .welcome-cover__copy{flex:0 0 auto}
   .welcome-cover__kicker{margin-bottom:clamp(12px,2dvh,22px);font-size:.56rem}

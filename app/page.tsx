@@ -17,6 +17,7 @@ export default function Home() {
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const musicAllowedRef = useRef(false);
   const countdownRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -51,20 +52,29 @@ export default function Home() {
     if (!audio) return;
 
     if (!music) {
+      musicAllowedRef.current = false;
       audio.pause();
       audio.currentTime = 0;
       setMusicPlaying(false);
       return;
     }
 
+    musicAllowedRef.current = true;
     audio.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
   };
 
   const toggleMusic = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (audio.paused) audio.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
-    else { audio.pause(); setMusicPlaying(false); }
+    if (audio.paused) {
+      musicAllowedRef.current = true;
+      audio.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
+    }
+    else {
+      musicAllowedRef.current = false;
+      audio.pause();
+      setMusicPlaying(false);
+    }
   };
 
   const calendar = () => {
@@ -79,15 +89,28 @@ export default function Home() {
   };
 
   return <main>
-    <audio ref={audioRef} src="/twice.mp3" loop preload="auto" />
+    <audio
+      ref={audioRef}
+      src="/twice.mp3"
+      loop
+      preload="metadata"
+      onPlay={() => {
+        if (!musicAllowedRef.current) {
+          audioRef.current?.pause();
+          return;
+        }
+        setMusicPlaying(true);
+      }}
+      onPause={() => setMusicPlaying(false)}
+    />
     <div className={`splash splash-reference ${entered ? "splash--gone" : ""}`} aria-hidden={entered}>
       <img src="/intro-albertina.png" alt="Albertina, Mis XV. Estás por entrar a mi noche." />
       <div className="splash-hotspots">
-        <button onClick={() => enter(true)} aria-label="Entrar con música">ENTRAR CON MÚSICA ♫</button>
-        <button onClick={() => enter(false)} aria-label="Entrar sin música">ENTRAR SIN MÚSICA</button>
+        <button type="button" onClick={() => enter(true)} aria-label="Entrar con música">ENTRAR CON MÚSICA ♫</button>
+        <button type="button" onClick={() => enter(false)} aria-label="Entrar sin música">ENTRAR SIN MÚSICA</button>
       </div>
     </div>
-    {entered && <button className={`music-toggle ${musicPlaying ? "is-playing" : ""}`} onClick={toggleMusic} aria-label={musicPlaying ? "Pausar música" : "Reproducir música"} aria-pressed={musicPlaying}><span aria-hidden="true">♫</span></button>}
+    {entered && <button className={`music-toggle ${musicPlaying ? "is-playing" : "is-paused"}`} onClick={toggleMusic} aria-label={musicPlaying ? "Pausar música" : "Música pausada. Reproducir"} aria-pressed={musicPlaying}><span aria-hidden="true">{musicPlaying ? "♫" : "Ⅱ"}</span></button>}
 
     <section className="hero welcome-cover">
       <div className="welcome-cover__copy">

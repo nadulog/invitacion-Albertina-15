@@ -10,9 +10,10 @@
 /* Intro visual supplied for Albertina */
 .splash-reference{display:block;width:100vw;height:100dvh;max-height:100dvh;padding:0;overflow:hidden;background:#f7d5d7 url('/intro-albertina-mobile-v2.png') center/cover no-repeat;text-align:initial}
 .splash-reference>img{display:none}
-.splash-hotspots{position:absolute;top:0;bottom:0;left:0;width:100%;transform:none;display:flex;flex-direction:column;align-items:center;padding-top:63.7vh;pointer-events:none}
-.splash-hotspots button{pointer-events:auto;width:66.5%;height:6.6vh;min-height:46px;margin:0;border:0;border-radius:0;background:transparent;color:transparent;box-shadow:none}
-.splash-hotspots button+button{height:6.2vh;margin-top:3.4vh}
+.splash-hotspots{position:absolute;inset:0;width:100%;transform:none;display:block;padding:0;pointer-events:none}
+.splash-hotspots button{position:absolute;left:16.75%;pointer-events:auto;width:66.5%;min-height:44px;margin:0;border:0;border-radius:0;background:transparent;color:transparent;box-shadow:none;touch-action:manipulation}
+.splash-hotspots button:first-child{top:63.45%;height:6.8%}
+.splash-hotspots button+button{top:71.6%;height:7.8%;margin:0}
 .splash-hotspots button:hover{background:#fff2;transform:none}
 .splash-hotspots button:focus-visible{outline:3px solid #d98096;outline-offset:-5px}
 @media (min-width:800px){.splash-hotspots{width:100%}}
@@ -127,6 +128,8 @@
 .music-toggle{position:fixed;z-index:45;right:18px;bottom:18px;width:52px;height:52px;min-height:52px;padding:0;display:grid;place-items:center;border:1px solid rgba(213,112,151,.65);border-radius:50%;background:rgba(255,249,251,.92);color:#df7ea5;font-size:1.35rem;box-shadow:0 7px 24px rgba(132,76,97,.22);backdrop-filter:blur(8px)}
 .music-toggle:hover{background:#fff;transform:translateY(-2px)}
 .music-toggle.is-playing span{animation:music-note-pulse 1.3s ease-in-out infinite}
+.music-toggle.is-paused{background:rgba(244,225,230,.94);color:#9b777e;border-color:rgba(155,119,126,.48)}
+.music-toggle.is-paused span{font-size:1rem;font-weight:700;letter-spacing:-.12em;transform:translateX(-1px)}
 @keyframes music-note-pulse{50%{transform:scale(1.18);opacity:.68}}
 
 /* Image-based location section supplied for Albertina */
@@ -143,9 +146,10 @@
   main{width:480px;max-width:100%;margin:0 auto;background:#fff;box-shadow:0 0 42px rgba(111,73,82,.16);overflow:hidden}
   main>section{width:100%!important;margin-left:auto!important;margin-right:auto!important}
   .splash-reference{background-image:url('/intro-albertina-desktop-v2.png');background-size:cover;background-position:center}
-  .splash-hotspots{width:100%;max-width:none;padding-top:68.2vh}
-  .splash-hotspots button{width:39.5%;height:10.2%;min-height:58px}
-  .splash-hotspots button+button{height:7.2%;margin-top:2.2%}
+  .splash-hotspots{width:100%;max-width:none;padding:0}
+  .splash-hotspots button{left:30.25%;width:39.5%;min-height:58px}
+  .splash-hotspots button:first-child{top:68.2%;height:10.2%}
+  .splash-hotspots button+button{top:80.6%;height:7.2%;margin:0}
   .hero.welcome-cover{height:auto;min-height:100svh;max-height:none;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:0;padding:64px 40px 56px}
   .welcome-cover__copy{max-width:none}
   .welcome-cover__copy h2 span{font-size:2.75rem}
@@ -167,8 +171,25 @@
 
 /* Mobile welcome must grow with its content so the polaroid is never clipped. */
 @media(max-width:799px){
-  main>section.hero.welcome-cover{height:auto;min-height:100svh;max-height:none;overflow:visible;display:flex;flex-direction:column;justify-content:flex-start;padding:64px 9vw 56px}
-  .welcome-polaroids{position:relative;width:100%;height:auto;min-height:0;flex:none;display:flex;justify-content:center;margin:38px auto 0;overflow:visible}
-  .welcome-polaroid--front{position:relative;left:auto;bottom:auto;width:82%;height:auto;flex:none;transform:rotate(2deg)}
-  .welcome-polaroid--front img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+  html{scroll-snap-type:y mandatory}
+  body,main{width:100%;max-width:none}
+  main>section{width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;margin:0!important;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+  main>section.hero.welcome-cover{overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding:clamp(24px,4dvh,48px) 5vw clamp(16px,3dvh,32px)}
+  .welcome-cover__copy{flex:0 0 auto}
+  .welcome-cover__kicker{margin-bottom:clamp(12px,2dvh,22px);font-size:.56rem}
+  .welcome-cover__copy h2{margin-bottom:clamp(12px,2dvh,22px)}
+  .welcome-cover__copy h2 span{margin-bottom:10px;font-size:clamp(2rem,8.5vw,2.65rem)}
+  .welcome-cover__copy h2 strong{font-size:clamp(1.55rem,6.8vw,2.1rem);line-height:1.02}
+  .welcome-cover__body{font-size:clamp(.75rem,2.65vw,.9rem);line-height:1.48}
+  .welcome-polaroids{position:relative;width:100%;height:auto;min-height:0;flex:1 1 auto;display:flex;align-items:flex-start;justify-content:center;margin:clamp(14px,2.4dvh,24px) auto 0;overflow:visible}
+  .welcome-polaroid--front{position:relative;left:auto;bottom:auto;width:auto;height:100%;max-width:78%;flex:none;padding:7px 7px 28px;aspect-ratio:2/3;transform:rotate(1.5deg)}
+  .welcome-polaroid--front img{display:block;width:100%;height:100%;aspect-ratio:2/3;object-fit:cover}
+  main>section.music{justify-content:space-between;padding:42px 0 16px;overflow:hidden}
+  .music .music-copy{flex:0 0 auto;padding:0 6vw;transform:none}
+  .music .music-copy h2{font-size:clamp(1.9rem,8.3vw,2.65rem)}
+  .music .music-copy>p{margin:18px auto 14px;line-height:1.55}
+  .music .music-copy button{margin-top:12px}
+  .zoe-turntable{width:clamp(240px,calc(100dvh - 320px),520px);max-width:100%;margin:0;overflow:visible}
+  .countdown-art-frame,.gift-art-frame{width:100%!important;height:100%!important;min-height:0!important;max-width:none!important}
+  .countdown-art,.countdown-reflections-image,.when-art-section>img,.location-art-section>img,.dress-art-section>img,.gift-art-frame>img,.bloom-art-section>img,.rsvp-art-section>img{width:100%;height:100%;object-fit:fill}
 }
